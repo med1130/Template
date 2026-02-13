@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعلان التصحيح النموذجي</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="timer-page" class="container">
+        <h1 class="neon-text">إعلان التصحيح النموذجي</h1>
+        <p class="description">سيتم نشر التصحيح النموذجي وسلم التنقيط بعد انتهاء مدة الامتحان</p>
+        
+        <div class="countdown-wrapper">
+            <h2 class="wait-msg">الوقت المتبقي</h2>
+            <div class="timer-grid">
+                <div class="timer-box">
+                    <span id="seconds" class="neon-num">00</span>
+                    <span class="label">ثانية</span>
+                </div>
+                <div class="timer-box">
+                    <span id="minutes" class="neon-num">00</span>
+                    <span class="label">دقيقة</span>
+                </div>
+                <div class="timer-box">
+                    <span id="hours" class="neon-num">00</span>
+                    <span class="label">ساعة</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="solution-page" class="container" style="display: none;">
+        <h1 class="neon-text">مرحبًا!</h1>
+        <div class="success-card">
+            <p class="welcome-msg">أعزائي التلاميذ،</p>
+            <p>يمكنكم الاطلاع على الإجابة النموذجية للموضوع عبر الرابط التالي:</p>
+            
+            <a href="https://your-link-to-pdf.com" class="solution-btn">رابط الإجابة النموذجية</a>
+            
+            <p class="wish-msg">نتمنى لكم التوفيق في دراستكم!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
