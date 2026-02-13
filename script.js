@@ -1,6 +1,6 @@
 // تعيين تاريخ انتهاء الامتحان (سنة، شهر-1، يوم، ساعة، دقيقة)
 // ملاحظة: شهر فبراير هو 1، مارس هو 2.. إلخ
-const examEndTime = new Date("February 13, 2026 22:00:00").getTime();
+const examEndTime = new Date("February 13, 2026 21:00:00").getTime();
 
 const countdown = setInterval(function() {
     const now = new Date().getTime();
