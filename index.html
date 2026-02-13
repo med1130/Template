@@ -2,10 +2,115 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>إعلان التصحيح النموذجي</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* إعدادات التصفير لضمان عدم وجود هوامش خارجية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-color: #00f2ff;
+            --bg-color: #0a0a0a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            height: 100vh; /* ملء ارتفاع الشاشة */
+            height: 100dvh; /* لدعم المتصفحات الحديثة وتجنب شريط العنوان */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* منع التمرير نهائياً */
+            padding: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px; /* عرض مناسب للهواتف */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 90%; /* استغلال أغلب الارتفاع */
+        }
+
+        .neon-text {
+            font-size: 1.8rem;
+            color: var(--neon-color);
+            text-shadow: 0 0 10px var(--neon-color);
+            line-height: 1.4;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #ccc;
+            padding: 0 10px;
+        }
+
+        /* تنسيق العداد ليكون في سطر واحد */
+        .timer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .timer-box {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 10px;
+            flex: 1; /* توزيع متساوي */
+            padding: 15px 5px;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.05);
+        }
+
+        .neon-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--neon-color);
+            display: block;
+        }
+
+        .label {
+            font-size: 0.75rem;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* صفحة الحل */
+        .solution-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            color: var(--neon-color);
+            border: 2px solid var(--neon-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 0 15px var(--neon-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 10px var(--neon-color); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px var(--neon-color); }
+            100% { transform: scale(1); box-shadow: 0 0 10px var(--neon-color); }
+        }
+
+        .wish-msg {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
 
@@ -13,37 +118,58 @@
         <h1 class="neon-text">إعلان التصحيح النموذجي</h1>
         <p class="description">سيتم نشر التصحيح النموذجي وسلم التنقيط بعد انتهاء مدة الامتحان</p>
         
-        <div class="countdown-wrapper">
-            <h2 class="wait-msg">الوقت المتبقي</h2>
+        <div class="countdown-section">
+            <p style="margin-bottom: 15px; color: #888;">الوقت المتبقي</p>
             <div class="timer-grid">
                 <div class="timer-box">
-                    <span id="seconds" class="neon-num">00</span>
-                    <span class="label">ثانية</span>
+                    <span id="hours" class="neon-num">00</span>
+                    <span class="label">ساعة</span>
                 </div>
                 <div class="timer-box">
                     <span id="minutes" class="neon-num">00</span>
                     <span class="label">دقيقة</span>
                 </div>
                 <div class="timer-box">
-                    <span id="hours" class="neon-num">00</span>
-                    <span class="label">ساعة</span>
+                    <span id="seconds" class="neon-num">00</span>
+                    <span class="label">ثانية</span>
                 </div>
             </div>
         </div>
+        <p style="font-size: 0.8rem; color: #444;">جميع الحقوق محفوظة © 2026</p>
     </div>
 
     <div id="solution-page" class="container" style="display: none;">
-        <h1 class="neon-text">مرحبًا!</h1>
-        <div class="success-card">
-            <p class="welcome-msg">أعزائي التلاميذ،</p>
-            <p>يمكنكم الاطلاع على الإجابة النموذجية للموضوع عبر الرابط التالي:</p>
-            
-            <a href="https://your-link-to-pdf.com" class="solution-btn">رابط الإجابة النموذجية</a>
-            
-            <p class="wish-msg">نتمنى لكم التوفيق في دراستكم!</p>
+        <h1 class="neon-text">مرحبًا بكم</h1>
+        <div>
+            <p>أعزائي التلاميذ، يمكنكم الآن الاطلاع على الإجابة النموذجية:</p>
+            <a href="https://your-pdf-link.com" class="solution-btn">تحميل التصحيح النموذجي (PDF)</a>
+            <p class="wish-msg">نتمنى لكم التوفيق في مساركم الدراسي</p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // ضبط وقت انتهاء الامتحان
+        const examEndTime = new Date("February 13, 2026 22:30:00").getTime();
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const diff = examEndTime - now;
+
+            if (diff <= 0) {
+                clearInterval(timer);
+                document.getElementById("timer-page").style.display = "none";
+                document.getElementById("solution-page").style.display = "flex";
+                return;
+            }
+
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("hours").innerText = String(h).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(m).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(s).padStart(2, '0');
+        }, 1000);
+    </script>
 </body>
 </html>
